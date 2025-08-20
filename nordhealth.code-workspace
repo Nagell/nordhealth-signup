@@ -1,0 +1,59 @@
+{
+    "folders": [
+        {
+            "path": "./"
+        },
+    ],
+    "settings": {
+        /* typescript */
+        "typescript.tsdk": "node_modules/typescript/lib",
+        /* eslint */
+        "[html]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[javascript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[vue]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+        },
+        "eslint.format.enable": true,
+        "eslint.options": {
+            "extensions": [
+                ".html",
+                ".js",
+                ".cjs",
+                ".vue",
+                ".jsx"
+            ]
+        },
+        "eslint.validate": [
+            "html",
+            "vue",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact"
+        ],
+        /* i18n-ally */
+        "i18n-ally.namespace": true,
+        "i18n-ally.pathMatcher": "{locale}.json",
+        "i18n-ally.localesPaths": [
+            "src/locales"
+        ],
+        "i18n-ally.enabledFrameworks": [
+            "vscode",
+            "vue",
+            "general"
+        ],
+        "i18n-ally.keystyle": "flat",
+    }
+}
