@@ -11,5 +11,17 @@ export default defineNuxtConfig({
         strict: true,
         typeCheck: true,
     },
-    css: ['~/assets/css/main.css'],
+    app: {
+        head: {
+            htmlAttrs: {
+                class: 'theme-is-vet',
+            },
+            meta: [{ name: 'theme-color', content: '#1f0849' }],
+        },
+    },
+    vite: {
+        optimizeDeps: {
+            include: ['@nordhealth/components'],
+        },
+    },
 })

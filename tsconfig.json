@@ -1,6 +1,11 @@
 {
     // https://nuxt.com/docs/guide/concepts/typescript
     "files": [],
+    "compilerOptions": {
+        "types": [
+            "@nordhealth/components/lib/vue.d.ts"
+        ]
+    },
     "references": [
         {
             "path": "./.nuxt/tsconfig.app.json"

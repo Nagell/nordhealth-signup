@@ -13,6 +13,11 @@ node_modules
 logs
 *.log
 
+# AI files
+.cursor
+.github
+.claude
+
 # Misc
 .DS_Store
 .fleet

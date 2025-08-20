@@ -1,7 +1,7 @@
 {
     "folders": [
         {
-            "path": "./"
+            "path": "./",
         },
     ],
     "settings": {
@@ -9,21 +9,21 @@
         "typescript.tsdk": "node_modules/typescript/lib",
         /* eslint */
         "[html]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode"
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
         },
         "[javascript]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode"
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
         },
         "[typescript]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode"
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
         },
         "[vue]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode"
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
         },
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": "explicit"
+            "source.fixAll.eslint": "explicit",
         },
         "eslint.format.enable": true,
         "eslint.options": {
@@ -33,7 +33,7 @@
                 ".cjs",
                 ".vue",
                 ".jsx"
-            ]
+            ],
         },
         "eslint.validate": [
             "html",
@@ -41,7 +41,7 @@
             "javascript",
             "javascriptreact",
             "typescript",
-            "typescriptreact"
+            "typescriptreact",
         ],
         /* i18n-ally */
         "i18n-ally.namespace": true,
@@ -55,5 +55,5 @@
             "general"
         ],
         "i18n-ally.keystyle": "flat",
-    }
+    },
 }
