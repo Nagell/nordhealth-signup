@@ -164,11 +164,7 @@ const signUpAnother = () => {
 }
 
 .success-title {
-    font-size: var(--n-font-size-xxxl);
-    font-weight: var(--n-font-weight-heading);
-    color: var(--n-color-text);
     margin-bottom: var(--n-space-m);
-    line-height: var(--n-line-height-xxs);
 }
 
 .success-description {
@@ -176,9 +172,7 @@ const signUpAnother = () => {
 
     .user-email {
         font-size: var(--n-font-size-l);
-        color: var(--n-color-text);
         margin-bottom: var(--n-space-s);
-        line-height: var(--n-line-height-s);
 
         strong {
             font-weight: var(--n-font-weight-active);
@@ -188,7 +182,6 @@ const signUpAnother = () => {
     .updates-status {
         font-size: var(--n-font-size-s);
         color: var(--n-color-text-weaker);
-        line-height: var(--n-line-height-s);
     }
 }
 
@@ -243,17 +236,13 @@ const signUpAnother = () => {
 }
 
 .step-title {
-    font-size: var(--n-font-size-m);
     font-weight: var(--n-font-weight-active);
-    color: var(--n-color-text);
     margin-bottom: var(--n-space-xs);
-    line-height: var(--n-line-height-xs);
 }
 
 .step-description {
     font-size: var(--n-font-size-s);
     color: var(--n-color-text-weaker);
-    line-height: var(--n-line-height-s);
 }
 
 .action-buttons {

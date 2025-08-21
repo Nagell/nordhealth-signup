@@ -180,16 +180,6 @@ nord-card {
     p {
         font-size: var(--n-font-size-s);
         color: var(--n-color-text-weaker);
-
-        a {
-            color: var(--n-color-text-link);
-            text-decoration: none;
-
-            &:hover {
-                color: var(--n-color-text-link-hover);
-                text-decoration: underline;
-            }
-        }
     }
 }
 </style>

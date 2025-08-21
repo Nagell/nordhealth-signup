@@ -59,8 +59,6 @@ const currentYear = computed(() => new Date().getFullYear())
 .footer-text {
     font-size: var(--n-font-size-xs);
     color: var(--n-color-text-weaker);
-    margin: 0;
-    line-height: var(--n-line-height-s);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -87,14 +85,6 @@ const currentYear = computed(() => new Date().getFullYear())
 
 .footer-link {
     font-size: var(--n-font-size-xs);
-    color: var(--n-color-text-link);
-    text-decoration: none;
-    transition: color var(--n-transition-quick);
-
-    &:hover {
-        color: var(--n-color-text-link-hover);
-        text-decoration: underline;
-    }
 }
 
 .footer-separator {

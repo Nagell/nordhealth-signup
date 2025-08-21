@@ -50,7 +50,7 @@
         "title": "Welcome to provet!",
         "message": "Your account has been successfully created,",
         "description": "You can now start using our services.",
-        "updatesEnabled": "✅ You'll receive product updates and announcements",
+        "updatesEnabled": "You'll receive product updates and announcements",
         "updatesDisabled": "You can always opt-in to updates later in your account settings",
         "nextSteps": {
             "title": "What's next?",
