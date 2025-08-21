@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     nitro: {
         preset: 'static',
     },
-    modules: ['@pinia/nuxt', '@vueuse/nuxt', '@nuxt/eslint'],
+    modules: ['@pinia/nuxt', '@vueuse/nuxt', '@nuxt/eslint', '@nuxtjs/i18n'],
     typescript: {
         strict: true,
         typeCheck: true,
@@ -19,9 +19,25 @@ export default defineNuxtConfig({
             meta: [{ name: 'theme-color', content: '#1f0849' }],
         },
     },
+    i18n: {
+        locales: [
+            {
+                code: 'en',
+                file: 'en.json',
+            },
+        ],
+        defaultLocale: 'en',
+    },
     vite: {
         optimizeDeps: {
             include: ['@nordhealth/components'],
+        },
+        vue: {
+            template: {
+                compilerOptions: {
+                    isCustomElement: (tag) => tag.includes('-'),
+                },
+            },
         },
     },
 })
