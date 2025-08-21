@@ -7,6 +7,8 @@
     A client-side rendered Nuxt 4 application for product signup using Nordhealth Design System
     <br />
     <br />
+    <a href="https://nordhealth-signup-eta.vercel.app/" target="_blank"><strong>Live Demo</strong></a>
+    ·
     <a href="#getting-started"><strong>Get Started »</strong></a>
     <br />
     <br />
@@ -34,6 +36,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+<a href="https://nordhealth-signup-eta.vercel.app/" target="_blank"><strong>🌐 View Live Demo</strong></a>
 
 This is a **Senior Frontend Engineer** level implementation of a product signup application built with Nuxt 4, TypeScript, and the Nordhealth Design System. The project demonstrates modern web development practices including composable-based architecture, comprehensive testing, accessibility compliance, and performance optimization.
 
