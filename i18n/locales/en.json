@@ -42,12 +42,12 @@
             "privacyPolicy": "Privacy Policy"
         },
         "meta": {
-            "title": "Sign Up – VetCare",
-            "description": "Join thousands of veterinary professionals with VetCare"
+            "title": "Sign Up – provet",
+            "description": "Join thousands of veterinary professionals with provet"
         }
     },
     "success": {
-        "title": "Welcome to VetCare!",
+        "title": "Welcome to provet!",
         "message": "Your account has been successfully created,",
         "description": "You can now start using our services.",
         "updatesEnabled": "✅ You'll receive product updates and announcements",
@@ -63,7 +63,7 @@
                 "description": "Add your practice information and preferences"
             },
             "step3": {
-                "title": "Start using VetCare",
+                "title": "Start using provet",
                 "description": "Access our full suite of veterinary tools and resources"
             }
         },
@@ -74,11 +74,17 @@
             "helpCenter": "Help Center"
         },
         "meta": {
-            "title": "Welcome – VetCare",
-            "description": "Welcome to VetCare! Your account has been successfully created."
+            "title": "Welcome – provet",
+            "description": "Welcome to provet! Your account has been successfully created."
         },
         "alerts": {
-            "dashboardNavigation": "This would navigate to your VetCare dashboard!"
+            "dashboardNavigation": "This would navigate to your provet dashboard!"
         }
+    },
+    "footer": {
+        "copyright": "All rights reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "support": "Support"
     }
 }

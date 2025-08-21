@@ -140,12 +140,11 @@ const signUpAnother = () => {
 
 <style scoped lang="scss">
 .success-page {
-    min-height: 100vh;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: var(--n-space-m);
-    background: var(--n-color-surface);
 }
 
 .success-container {

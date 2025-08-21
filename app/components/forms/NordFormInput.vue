@@ -14,6 +14,7 @@
             >
                 <nord-button
                     slot="end"
+                    type="button"
                     :aria-describedby="`${computedId}-password-tooltip`"
                     square
                     @click="togglePasswordVisibility"

@@ -3,6 +3,13 @@
         <div class="signup-container">
             <!-- Header -->
             <div class="header">
+                <div class="logo">
+                    <img
+                        src="~/assets/images/logo/Provet Cloud_logo_color_RGB.svg"
+                        alt="ProVet Cloud"
+                        class="logo-image"
+                    />
+                </div>
                 <h1>{{ $t('signup.title') }}</h1>
                 <p>{{ $t('signup.subtitle') }}</p>
             </div>
@@ -53,13 +60,17 @@
                 </BaseForm>
             </nord-card>
 
-            <!-- Footer -->
-            <div class="footer">
+            <!-- Terms Notice -->
+            <div class="terms-notice">
                 <p>
                     {{ $t('signup.footer.termsText') }}
-                    <a href="#">{{ $t('signup.footer.termsOfService') }}</a>
+                    <NuxtLink to="/">{{
+                        $t('signup.footer.termsOfService')
+                    }}</NuxtLink>
                     {{ $t('signup.footer.and') }}
-                    <a href="#">{{ $t('signup.footer.privacyPolicy') }}</a>
+                    <NuxtLink to="/">{{
+                        $t('signup.footer.privacyPolicy')
+                    }}</NuxtLink>
                 </p>
             </div>
         </div>
@@ -110,12 +121,11 @@ watchEffect(() => {
 
 <style scoped lang="scss">
 .signup-page {
-    min-height: 100vh;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: var(--n-space-m);
-    background: var(--n-color-surface);
 }
 
 .signup-container {
@@ -126,6 +136,24 @@ watchEffect(() => {
 .header {
     text-align: center;
     margin-bottom: var(--n-space-xl);
+
+    .logo {
+        margin: 1.25rem;
+
+        @media (min-width: 768px) {
+            margin: 2rem;
+        }
+    }
+
+    .logo-image {
+        height: 1.25rem;
+        max-width: 100%;
+        object-fit: contain;
+
+        @media (min-width: 768px) {
+            height: 2rem;
+        }
+    }
 
     h1 {
         margin-bottom: var(--n-space-xs);
@@ -145,13 +173,23 @@ nord-card {
     margin-bottom: var(--n-space-l);
 }
 
-.footer {
+.terms-notice {
     text-align: center;
     margin-top: var(--n-space-l);
 
     p {
         font-size: var(--n-font-size-s);
         color: var(--n-color-text-weaker);
+
+        a {
+            color: var(--n-color-text-link);
+            text-decoration: none;
+
+            &:hover {
+                color: var(--n-color-text-link-hover);
+                text-decoration: underline;
+            }
+        }
     }
 }
 </style>

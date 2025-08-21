@@ -2,7 +2,7 @@
     <nord-checkbox
         v-bind="nordCheckboxProps"
         :id="computedId"
-        :checked="value"
+        :checked="checked"
         :error="errorMessage"
         :aria-describedby="ariaDescribedBy"
         :aria-invalid="hasError"
@@ -38,11 +38,14 @@ const props = withDefaults(defineProps<NordFormCheckboxProps>(), {
 
 // vee-validate integration
 const {
-    value,
     errorMessage,
     handleChange: veeHandleChange,
+    checked,
 } = useField(() => props.name, undefined, {
-    validateOnValueUpdate: false,
+    validateOnValueUpdate: true,
+    initialValue: false,
+    type: 'checkbox',
+    checkedValue: true,
 })
 
 // Computed properties
@@ -70,8 +73,6 @@ const nordCheckboxProps = computed(() => ({
 
 // Event handlers
 const handleChange = (event: Event) => {
-    const target = event.target as HTMLInputElement
-    value.value = target.checked
     veeHandleChange(event, !!errorMessage.value)
 }
 
