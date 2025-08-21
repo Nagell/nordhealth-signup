@@ -4,7 +4,7 @@
             <!-- Success Animation / Icon -->
             <div class="success-header">
                 <div class="success-icon">
-                    <nord-icon name="interface-alert-success" size="xxxl" />
+                    <nord-icon name="interface-checked" size="xxl" />
                 </div>
 
                 <h1 class="success-title">{{ $t('success.title') }}</h1>
@@ -160,7 +160,6 @@ const signUpAnother = () => {
 .success-icon {
     margin-bottom: var(--n-space-l);
     color: var(--n-color-status-success);
-    animation: slideUp var(--n-transition-slow) ease-out;
 }
 
 .success-title {
@@ -189,9 +188,6 @@ const signUpAnother = () => {
     padding: var(--n-space-xl);
     margin-bottom: var(--n-space-xl);
     text-align: left;
-    animation: slideUp var(--n-transition-slow) ease-out;
-    animation-delay: 0.1s;
-    animation-fill-mode: both;
 }
 
 .card-title {
@@ -264,29 +260,17 @@ const signUpAnother = () => {
     p {
         font-size: var(--n-font-size-s);
         color: var(--n-color-text-weaker);
-        line-height: var(--n-line-height-s);
+        line-height: var(--n-line-height);
     }
 
     .support-link {
         color: var(--n-color-text-link);
         text-decoration: underline;
-        transition: all var(--n-transition-quick);
+        transition: all var(--n-transition-quickly);
 
         &:hover {
             text-decoration: none;
         }
-    }
-}
-
-// Animations
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(var(--n-space-l));
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 </style>
