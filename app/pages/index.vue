@@ -9,93 +9,48 @@
 
             <!-- Signup Form -->
             <nord-card>
-                <form
-                    id="signup-form"
-                    novalidate
-                    @submit.prevent="handleSubmit"
+                <BaseForm
+                    :validation-schema="signupSchema"
+                    :submit-handler="handleSubmit"
+                    :submit-text="$t('signup.submit')"
+                    :submit-loading-text="$t('signup.submitting')"
+                    name="signup-form"
                 >
                     <!-- Email Field -->
                     <div class="field-group">
-                        <nord-input
-                            v-model="formData.email"
+                        <NordFormInput
+                            :name="pickField('email')"
                             :label="$t('signup.email')"
-                            type="email"
-                            name="email"
-                            autocomplete="email"
                             form="signup-form"
+                            type="email"
+                            autocomplete="email"
                             required
                             expand
-                            :error="getFieldError('email')"
-                            @input="handleFieldInput('email')"
-                            @blur="handleFieldInput('email')"
                         />
                     </div>
 
                     <!-- Password Field -->
                     <div class="field-group">
-                        <div class="password-field">
-                            <nord-input
-                                v-model="formData.password"
-                                :label="$t('signup.password')"
-                                :type="showPassword ? 'text' : 'password'"
-                                name="password"
-                                autocomplete="new-password"
-                                form="signup-form"
-                                required
-                                expand
-                                :error="getFieldError('password')"
-                                @input="handleFieldInput('password')"
-                                @blur="handleFieldInput('password')"
-                            >
-                                <nord-button
-                                    slot="end"
-                                    aria-describedby="password-tooltip"
-                                    square
-                                    @click="togglePasswordVisibility"
-                                >
-                                    <nord-icon
-                                        v-if="!showPassword"
-                                        name="interface-edit-off"
-                                    />
-                                    <nord-icon
-                                        v-else
-                                        name="interface-edit-on"
-                                    />
-                                </nord-button>
-                            </nord-input>
-                            <nord-tooltip id="password-tooltip">
-                                {{ $t('signup.showHidePassword') }}
-                            </nord-tooltip>
-                        </div>
+                        <NordFormInput
+                            :name="pickField('password')"
+                            :label="$t('signup.password')"
+                            form="signup-form"
+                            type="password"
+                            autocomplete="new-password"
+                            required
+                            expand
+                        />
                     </div>
 
                     <!-- Accept Updates Checkbox -->
                     <div class="field-group">
-                        <nord-checkbox
-                            v-model="formData.acceptUpdates"
-                            name="acceptUpdates"
+                        <NordFormCheckbox
+                            :name="pickField('acceptUpdates')"
                             :label="$t('signup.productUpdates')"
                             :hint="$t('signup.productUpdatesHint')"
                         />
                     </div>
-
-                    <!-- Submit Button -->
-                    <div class="submit-group">
-                        <nord-button
-                            variant="primary"
-                            type="submit"
-                            :disabled="!canSubmit"
-                            :loading="isLoading"
-                            expand
-                        >
-                            {{
-                                isLoading
-                                    ? $t('signup.submitting')
-                                    : $t('signup.submit')
-                            }}
-                        </nord-button>
-                    </div>
-                </form>
+                </BaseForm>
             </nord-card>
 
             <!-- Footer -->
@@ -112,8 +67,13 @@
 </template>
 
 <script setup lang="ts">
-import { useSignupForm } from '~/composables/useSignupForm'
 import { useAuthStore } from '~/stores/auth'
+import { signupSchema } from '~/schemas/signup'
+import { useZodFieldPicker } from '~/composables/useZodFieldPicker'
+import BaseForm from '~/components/forms/BaseForm.vue'
+import NordFormInput from '~/components/forms/NordFormInput.vue'
+import NordFormCheckbox from '~/components/forms/NordFormCheckbox.vue'
+import type { SignupFormData } from '~/schemas/signup'
 
 // Set page meta
 useSeoMeta({
@@ -122,34 +82,26 @@ useSeoMeta({
 })
 
 const authStore = useAuthStore()
-const router = useRouter()
 
-// Use the signup form composable
-const {
-    formData,
-    showPassword,
-    isLoading,
-    canSubmit,
-    getFieldError,
-    togglePasswordVisibility,
-    handleFieldInput,
-    submitForm,
-} = useSignupForm()
+// Use the field picker for type-safe field names
+const { pickField } = useZodFieldPicker(signupSchema)
 
 // Handle form submission
-const handleSubmit = async () => {
-    const success = await submitForm()
-
-    if (success) {
-        // Navigate to success page
-        await router.push('/success')
+const handleSubmit = async (values: SignupFormData) => {
+    try {
+        await authStore.signUp(values)
+        // Navigate to success page on success
+        await navigateTo('/success')
+    } catch (error) {
+        // vee-validate will handle the error display
+        console.error('Signup failed:', error)
     }
 }
 
 // Redirect if already signed up
 watchEffect(() => {
     if (authStore.isSignedUp) {
-        router.push('/success')
+        navigateTo('/success')
     }
 })
 </script>
@@ -189,18 +141,6 @@ nord-card {
 
 .field-group {
     margin-bottom: var(--n-space-l);
-}
-
-.password-field {
-    position: relative;
-}
-
-.submit-group {
-    margin-top: var(--n-space-xl);
-}
-
-.error-banner {
-    margin-top: var(--n-space-m);
 }
 
 .footer {

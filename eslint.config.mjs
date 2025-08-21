@@ -7,4 +7,13 @@ export default withNuxt(eslintPluginPrettierRecommended, {
         'vue/multi-word-component-names': 'off',
         'vue/no-deprecated-slot-attribute': 'off',
     },
+    languageOptions: {
+        parserOptions: {
+            parser: '@typescript-eslint/parser',
+            extraFileExtensions: ['.vue'],
+            ecmaFeatures: {
+                jsx: true,
+            },
+        },
+    },
 })

@@ -54,6 +54,6 @@
             "vue",
             "general"
         ],
-        "i18n-ally.keystyle": "auto",
+        "i18n-ally.keystyle": "nested",
     },
 }
