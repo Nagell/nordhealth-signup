@@ -5,5 +5,6 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 export default withNuxt(eslintPluginPrettierRecommended, {
     rules: {
         'vue/multi-word-component-names': 'off',
+        'vue/no-deprecated-slot-attribute': 'off',
     },
 })

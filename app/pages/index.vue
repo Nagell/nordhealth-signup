@@ -10,13 +10,14 @@
             <!-- Signup Form -->
             <nord-card>
                 <form
+                    id="signup-form"
                     novalidate
                     @submit.prevent="handleSubmit"
-                    id="signup-form"
                 >
                     <!-- Email Field -->
                     <div class="field-group">
                         <nord-input
+                            v-model="formData.email"
                             :label="$t('signup.email')"
                             type="email"
                             name="email"
@@ -24,7 +25,6 @@
                             form="signup-form"
                             required
                             expand
-                            v-model="formData.email"
                             :error="getFieldError('email')"
                             @input="handleFieldInput('email')"
                             @blur="handleFieldInput('email')"
@@ -35,6 +35,7 @@
                     <div class="field-group">
                         <div class="password-field">
                             <nord-input
+                                v-model="formData.password"
                                 :label="$t('signup.password')"
                                 :type="showPassword ? 'text' : 'password'"
                                 name="password"
@@ -42,7 +43,6 @@
                                 form="signup-form"
                                 required
                                 expand
-                                v-model="formData.password"
                                 :error="getFieldError('password')"
                                 @input="handleFieldInput('password')"
                                 @blur="handleFieldInput('password')"
@@ -72,10 +72,10 @@
                     <!-- Accept Updates Checkbox -->
                     <div class="field-group">
                         <nord-checkbox
+                            v-model="formData.acceptUpdates"
                             name="acceptUpdates"
                             :label="$t('signup.productUpdates')"
                             :hint="$t('signup.productUpdatesHint')"
-                            v-model="formData.acceptUpdates"
                         />
                     </div>
 

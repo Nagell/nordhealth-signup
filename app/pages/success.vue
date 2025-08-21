@@ -71,19 +71,11 @@
 
             <!-- Action Buttons -->
             <div class="action-buttons">
-                <nord-button
-                    variant="primary"
-                    size="l"
-                    @click="goToDashboard"
-                >
+                <nord-button variant="primary" size="l" @click="goToDashboard">
                     Get Started
                 </nord-button>
 
-                <nord-button
-                    variant="plain"
-                    size="l"
-                    @click="signUpAnother"
-                >
+                <nord-button variant="plain" size="l" @click="signUpAnother">
                     Sign Up Another Account
                 </nord-button>
             </div>
@@ -92,7 +84,9 @@
             <div class="footer-links">
                 <p>
                     Questions?
-                    <a href="#" class="support-link">Contact our support team</a>
+                    <a href="#" class="support-link">
+                        Contact our support team
+                    </a>
                     or visit our
                     <a href="#" class="support-link">Help Center</a>
                 </p>
@@ -104,6 +98,11 @@
 <script setup lang="ts">
 import { useAuthStore } from '~/stores/auth'
 
+// Apply auth middleware
+definePageMeta({
+    middleware: 'auth',
+})
+
 // Set page meta
 useSeoMeta({
     title: 'Welcome - VetCare',
@@ -112,14 +111,6 @@ useSeoMeta({
 })
 
 const authStore = useAuthStore()
-const router = useRouter()
-
-// Redirect if not signed up
-onMounted(() => {
-    if (!authStore.isSignedUp || !authStore.user) {
-        router.push('/')
-    }
-})
 
 // Computed properties for user data
 const userEmail = computed(() => authStore.user?.email || '')
@@ -137,24 +128,8 @@ const goToDashboard = () => {
 const signUpAnother = () => {
     // Reset the auth state and go back to signup
     authStore.resetSignup()
-    router.push('/')
+    navigateTo('/')
 }
-
-// Prevent back button navigation to signup form
-const preventBack = (event: PopStateEvent) => {
-    if (authStore.isSignedUp) {
-        event.preventDefault()
-        history.pushState(null, '', '/success')
-    }
-}
-
-onMounted(() => {
-    window.addEventListener('popstate', preventBack)
-})
-
-onUnmounted(() => {
-    window.removeEventListener('popstate', preventBack)
-})
 </script>
 
 <style scoped lang="scss">
