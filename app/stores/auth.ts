@@ -13,7 +13,12 @@ interface AuthState {
 
 export const useAuthStore = defineStore('auth', () => {
     // Persistent state using useLocalStorage
-    const user = useLocalStorage<AuthState['user']>('nordhealth_user', null)
+    const user = useLocalStorage<AuthState['user']>('nordhealth_user', null, {
+        serializer: {
+            read: (v: any) => (v ? JSON.parse(v) : null),
+            write: (v: any) => JSON.stringify(v),
+        },
+    })
     const token = useLocalStorage<string | null>('nordhealth_token', null)
     const isSignedUp = useLocalStorage('nordhealth_isSignedUp', false)
 
