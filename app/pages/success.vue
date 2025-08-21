@@ -7,26 +7,25 @@
                     <nord-icon name="interface-alert-success" size="xxxl" />
                 </div>
 
-                <h1 class="success-title">Welcome to VetCare!</h1>
+                <h1 class="success-title">{{ $t('success.title') }}</h1>
 
                 <div class="success-description">
                     <p class="user-email">
-                        Your account has been successfully created,
+                        {{ $t('success.message') }}
                         <strong>{{ userEmail }}</strong>
                     </p>
                     <p v-if="userAcceptedUpdates" class="updates-status">
-                        ✅ You'll receive product updates and announcements
+                        {{ $t('success.updatesEnabled') }}
                     </p>
                     <p v-else class="updates-status">
-                        You can always opt-in to updates later in your account
-                        settings
+                        {{ $t('success.updatesDisabled') }}
                     </p>
                 </div>
             </div>
 
             <!-- Success Card -->
             <nord-card class="next-steps-card">
-                <h2 class="card-title">What's next?</h2>
+                <h2 class="card-title">{{ $t('success.nextSteps.title') }}</h2>
 
                 <div class="steps-list">
                     <div class="step-item">
@@ -34,10 +33,11 @@
                             <span>1</span>
                         </div>
                         <div class="step-content">
-                            <h3 class="step-title">Check your email</h3>
+                            <h3 class="step-title">
+                                {{ $t('success.nextSteps.step1.title') }}
+                            </h3>
                             <p class="step-description">
-                                We've sent a verification link to your email
-                                address
+                                {{ $t('success.nextSteps.step1.description') }}
                             </p>
                         </div>
                     </div>
@@ -47,9 +47,11 @@
                             <span>2</span>
                         </div>
                         <div class="step-content">
-                            <h3 class="step-title">Complete your profile</h3>
+                            <h3 class="step-title">
+                                {{ $t('success.nextSteps.step2.title') }}
+                            </h3>
                             <p class="step-description">
-                                Add your practice information and preferences
+                                {{ $t('success.nextSteps.step2.description') }}
                             </p>
                         </div>
                     </div>
@@ -59,10 +61,11 @@
                             <span>3</span>
                         </div>
                         <div class="step-content">
-                            <h3 class="step-title">Start using VetCare</h3>
+                            <h3 class="step-title">
+                                {{ $t('success.nextSteps.step3.title') }}
+                            </h3>
                             <p class="step-description">
-                                Access our full suite of veterinary tools and
-                                resources
+                                {{ $t('success.nextSteps.step3.description') }}
                             </p>
                         </div>
                     </div>
@@ -72,23 +75,25 @@
             <!-- Action Buttons -->
             <div class="action-buttons">
                 <nord-button variant="primary" size="l" @click="goToDashboard">
-                    Get Started
+                    {{ $t('common.buttons.getStarted') }}
                 </nord-button>
 
                 <nord-button variant="plain" size="l" @click="signUpAnother">
-                    Sign Up Another Account
+                    {{ $t('common.buttons.signUpAnother') }}
                 </nord-button>
             </div>
 
             <!-- Footer Links -->
             <div class="footer-links">
                 <p>
-                    Questions?
+                    {{ $t('success.footer.questions') }}
                     <a href="#" class="support-link">
-                        Contact our support team
+                        {{ $t('success.footer.contactSupport') }}
                     </a>
-                    or visit our
-                    <a href="#" class="support-link">Help Center</a>
+                    {{ $t('success.footer.or') }}
+                    <a href="#" class="support-link">{{
+                        $t('success.footer.helpCenter')
+                    }}</a>
                 </p>
             </div>
         </div>
@@ -98,6 +103,8 @@
 <script setup lang="ts">
 import { useAuthStore } from '~/stores/auth'
 
+const { t } = useI18n()
+
 // Apply auth middleware
 definePageMeta({
     middleware: 'auth',
@@ -105,9 +112,8 @@ definePageMeta({
 
 // Set page meta
 useSeoMeta({
-    title: 'Welcome - VetCare',
-    description:
-        'Welcome to VetCare! Your account has been successfully created.',
+    title: t('success.meta.title'),
+    description: t('success.meta.description'),
 })
 
 const authStore = useAuthStore()
@@ -122,7 +128,7 @@ const userAcceptedUpdates = computed(
 const goToDashboard = () => {
     // In a real app, this would navigate to the main dashboard
     // For now, we'll show an alert
-    alert('This would navigate to your VetCare dashboard!')
+    alert(t('success.alerts.dashboardNavigation'))
 }
 
 const signUpAnother = () => {
@@ -213,7 +219,7 @@ const signUpAnother = () => {
 .step-item {
     display: flex;
     align-items: flex-start;
-    gap: var(--n-space-s);
+    gap: var(--n-space-m);
 }
 
 .step-number {
@@ -225,10 +231,9 @@ const signUpAnother = () => {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    margin-top: 0.125rem;
 
     span {
-        color: var(--n-color-accent-text);
+        color: var(--n-color-text-on-accent);
         font-size: var(--n-font-size-s);
         font-weight: var(--n-font-weight-active);
     }

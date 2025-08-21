@@ -56,10 +56,10 @@
             <!-- Footer -->
             <div class="footer">
                 <p>
-                    By creating an account, you agree to our
-                    <a href="#">Terms of Service</a>
-                    and
-                    <a href="#">Privacy Policy</a>
+                    {{ $t('signup.footer.termsText') }}
+                    <a href="#">{{ $t('signup.footer.termsOfService') }}</a>
+                    {{ $t('signup.footer.and') }}
+                    <a href="#">{{ $t('signup.footer.privacyPolicy') }}</a>
                 </p>
             </div>
         </div>
@@ -75,10 +75,12 @@ import NordFormInput from '~/components/forms/NordFormInput.vue'
 import NordFormCheckbox from '~/components/forms/NordFormCheckbox.vue'
 import type { SignupFormData } from '~/schemas/signup'
 
+const { t } = useI18n()
+
 // Set page meta
 useSeoMeta({
-    title: 'Sign Up - VetCare',
-    description: 'Join thousands of veterinary professionals with VetCare',
+    title: t('signup.meta.title'),
+    description: t('signup.meta.description'),
 })
 
 const authStore = useAuthStore()

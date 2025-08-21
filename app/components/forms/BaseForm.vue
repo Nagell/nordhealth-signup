@@ -112,7 +112,6 @@ defineExpose({
 .base-form {
     display: flex;
     flex-direction: column;
-    gap: var(--n-space-l);
 }
 
 .form-actions {

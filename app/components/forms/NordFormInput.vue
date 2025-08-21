@@ -28,7 +28,11 @@
                 </nord-button>
             </nord-input>
             <nord-tooltip :id="`${computedId}-password-tooltip`">
-                {{ showPassword ? 'Hide password' : 'Show password' }}
+                {{
+                    showPassword
+                        ? t('common.password.hide')
+                        : t('common.password.show')
+                }}
             </nord-tooltip>
         </div>
 
@@ -50,6 +54,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useField } from 'vee-validate'
+
+const { t } = useI18n()
 
 export interface NordFormInputProps {
     name: string

@@ -1,4 +1,16 @@
 {
+    "common": {
+        "buttons": {
+            "submit": "Submit",
+            "submitting": "Submitting…",
+            "getStarted": "Get Started",
+            "signUpAnother": "Sign Up Another Account"
+        },
+        "password": {
+            "show": "Show password",
+            "hide": "Hide password"
+        }
+    },
     "form": {
         "general": {
             "save": "Sign Up",
@@ -22,11 +34,51 @@
         "productUpdates": "I would like to receive occasional product updates and announcements",
         "productUpdatesHint": "You can unsubscribe at any time",
         "submit": "Create Account",
-        "submitting": "Creating Account..."
+        "submitting": "Creating Account…",
+        "footer": {
+            "termsText": "By creating an account, you agree to our",
+            "termsOfService": "Terms of Service",
+            "and": "and",
+            "privacyPolicy": "Privacy Policy"
+        },
+        "meta": {
+            "title": "Sign Up – VetCare",
+            "description": "Join thousands of veterinary professionals with VetCare"
+        }
     },
     "success": {
-        "title": "Welcome!",
-        "message": "Your account has been created successfully.",
-        "description": "You can now start using our services."
+        "title": "Welcome to VetCare!",
+        "message": "Your account has been successfully created,",
+        "description": "You can now start using our services.",
+        "updatesEnabled": "✅ You'll receive product updates and announcements",
+        "updatesDisabled": "You can always opt-in to updates later in your account settings",
+        "nextSteps": {
+            "title": "What's next?",
+            "step1": {
+                "title": "Check your email",
+                "description": "We've sent a verification link to your email address"
+            },
+            "step2": {
+                "title": "Complete your profile",
+                "description": "Add your practice information and preferences"
+            },
+            "step3": {
+                "title": "Start using VetCare",
+                "description": "Access our full suite of veterinary tools and resources"
+            }
+        },
+        "footer": {
+            "questions": "Questions?",
+            "contactSupport": "Contact our support team",
+            "or": "or visit our",
+            "helpCenter": "Help Center"
+        },
+        "meta": {
+            "title": "Welcome – VetCare",
+            "description": "Welcome to VetCare! Your account has been successfully created."
+        },
+        "alerts": {
+            "dashboardNavigation": "This would navigate to your VetCare dashboard!"
+        }
     }
 }
