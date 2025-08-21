@@ -74,8 +74,8 @@
 
             <!-- Action Buttons -->
             <div class="action-buttons">
-                <nord-button variant="primary" size="l" @click="goToDashboard">
-                    {{ $t('common.buttons.getStarted') }}
+                <nord-button variant="primary" size="l" @click="resendEmail">
+                    {{ $t('common.buttons.resendEmail') }}
                 </nord-button>
 
                 <nord-button variant="plain" size="l" @click="signUpAnother">
@@ -125,10 +125,10 @@ const userAcceptedUpdates = computed(
 )
 
 // Actions
-const goToDashboard = () => {
+const resendEmail = () => {
     // In a real app, this would navigate to the main dashboard
     // For now, we'll show an alert
-    alert(t('success.alerts.dashboardNavigation'))
+    alert(t('success.alerts.resendEmail'))
 }
 
 const signUpAnother = () => {
@@ -244,10 +244,11 @@ const signUpAnother = () => {
 .action-buttons {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--n-space-s);
     margin-bottom: var(--n-space-xl);
 
-    @media (min-width: 640px) {
+    @media (min-width: 768px) {
         flex-direction: row;
         justify-content: center;
         gap: var(--n-space-m);

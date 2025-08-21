@@ -3,7 +3,7 @@
         "buttons": {
             "submit": "Submit",
             "submitting": "Submitting…",
-            "getStarted": "Get Started",
+            "resendEmail": "Resend Email",
             "signUpAnother": "Sign Up Another Account"
         },
         "password": {
@@ -78,7 +78,7 @@
             "description": "Welcome to provet! Your account has been successfully created."
         },
         "alerts": {
-            "dashboardNavigation": "This would navigate to your provet dashboard!"
+            "resendEmail": "This would resend the verification email."
         }
     },
     "footer": {
