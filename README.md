@@ -152,6 +152,9 @@ npx playwright install chromium firefox webkit
 #### Running E2E Tests
 
 ```bash
+# Run app locally before running tests
+pnpm dev
+
 # Run all E2E tests
 pnpm test:e2e
 
@@ -170,6 +173,14 @@ npx playwright test --headed
 # Debug tests with step-by-step execution
 npx playwright test --debug
 ```
+
+> [!NOTE]  
+> Should you encounter any performance issues on your machine,  
+> consider adjusting the number of parallel test workers and/or the 'project'.
+>
+> ```bash
+> pnpm test:e2e --workers 1 --project chromium
+> ```
 
 #### E2E Test Coverage
 

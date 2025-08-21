@@ -42,7 +42,7 @@
             "privacyPolicy": "Privacy Policy"
         },
         "meta": {
-            "title": "Sign Up – provet",
+            "title": "Sign Up {'|'} provet cloud",
             "description": "Join thousands of veterinary professionals with provet"
         }
     },
@@ -74,8 +74,8 @@
             "helpCenter": "Help Center"
         },
         "meta": {
-            "title": "Welcome – provet",
-            "description": "Welcome to provet! Your account has been successfully created."
+            "title": "Welcome {'|'} provet cloud",
+            "description": "Welcome to provet cloud! Your account has been successfully created."
         },
         "alerts": {
             "resendEmail": "This would resend the verification email."
