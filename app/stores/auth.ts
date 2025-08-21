@@ -6,54 +6,77 @@ interface AuthState {
         email: string
         acceptUpdates: boolean
     } | null
+    token: string | null
     isLoading: boolean
     isSignedUp: boolean
 }
 
-export const useAuthStore = defineStore('auth', {
-    state: (): AuthState => ({
-        user: null,
-        isLoading: false,
-        isSignedUp: false,
-    }),
+export const useAuthStore = defineStore('auth', () => {
+    // Persistent state using useLocalStorage
+    const user = useLocalStorage<AuthState['user']>('nordhealth_user', null)
+    const token = useLocalStorage<string | null>('nordhealth_token', null)
+    const isSignedUp = useLocalStorage('nordhealth_isSignedUp', false)
 
-    actions: {
-        setLoading(loading: boolean) {
-            this.isLoading = loading
-        },
+    // Non-persistent loading state
+    const isLoading = ref(false)
 
-        async signUp(formData: SignupFormData) {
-            this.setLoading(true)
+    // Actions
+    const setLoading = (loading: boolean) => {
+        isLoading.value = loading
+    }
 
-            try {
-                // Validate form data
-                const validatedData = signupSchema.parse(formData)
+    const signUp = async (formData: SignupFormData) => {
+        setLoading(true)
 
-                // Simulate API call delay
-                await new Promise((resolve) => setTimeout(resolve, 1000))
+        try {
+            // Validate form data
+            const validatedData = signupSchema.parse(formData)
 
-                // Set user data (in a real app, this would come from API response)
-                this.user = {
+            // Simulate API call delay
+            await new Promise((resolve) => setTimeout(resolve, 1000))
+
+            // Simulate receiving a JWT token from the API
+            const simulatedToken = `jwt.${btoa(
+                JSON.stringify({
                     email: validatedData.email,
-                    acceptUpdates: validatedData.acceptUpdates,
-                }
+                    iat: Math.floor(Date.now() / 1000),
+                    exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60, // 24 hours
+                })
+            )}.signature`
 
-                this.isSignedUp = true
-            } catch (error) {
-                // Re-throw error for form to handle
-                throw error
-            } finally {
-                this.setLoading(false)
+            // Set user data and token (in a real app, this would come from API response)
+            user.value = {
+                email: validatedData.email,
+                acceptUpdates: validatedData.acceptUpdates,
             }
-        },
+            token.value = simulatedToken
 
-        resetSignup() {
-            this.user = null
-            this.isSignedUp = false
-        },
-    },
+            isSignedUp.value = true
+        } catch (error) {
+            // Re-throw error for form to handle
+            throw error
+        } finally {
+            setLoading(false)
+        }
+    }
 
-    getters: {
-        isAuthenticated: (state) => !!state.user,
-    },
+    const resetSignup = () => {
+        user.value = null
+        token.value = null
+        isSignedUp.value = false
+    }
+
+    // Getters
+    const isAuthenticated = computed(() => !!user.value)
+
+    return {
+        user: readonly(user),
+        token: readonly(token),
+        isLoading: readonly(isLoading),
+        isSignedUp: readonly(isSignedUp),
+        setLoading,
+        signUp,
+        resetSignup,
+        isAuthenticated,
+    }
 })
