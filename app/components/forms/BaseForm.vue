@@ -19,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import type { z } from 'zod'

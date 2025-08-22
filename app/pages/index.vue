@@ -16,16 +16,21 @@
 
             <!-- Signup Form -->
             <nord-card>
-                <BaseForm
+                <FormsBaseForm
                     :validation-schema="signupSchema"
                     :submit-handler="handleSubmit"
                     :submit-text="$t('signup.submit')"
                     :submit-loading-text="$t('signup.submitting')"
                     name="signup-form"
+                    :initial-values="{
+                        email: '',
+                        password: '',
+                        acceptUpdates: false,
+                    }"
                 >
                     <!-- Email Field -->
                     <div class="field-group">
-                        <NordFormInput
+                        <FormsNordFormInput
                             :name="pickField('email')"
                             :label="$t('signup.email')"
                             form="signup-form"
@@ -38,7 +43,7 @@
 
                     <!-- Password Field -->
                     <div class="field-group">
-                        <NordFormInput
+                        <FormsNordFormInput
                             :name="pickField('password')"
                             :label="$t('signup.password')"
                             form="signup-form"
@@ -51,13 +56,13 @@
 
                     <!-- Accept Updates Checkbox -->
                     <div class="field-group">
-                        <NordFormCheckbox
+                        <FormsNordFormCheckbox
                             :name="pickField('acceptUpdates')"
                             :label="$t('signup.productUpdates')"
                             :hint="$t('signup.productUpdatesHint')"
                         />
                     </div>
-                </BaseForm>
+                </FormsBaseForm>
             </nord-card>
 
             <!-- Terms Notice -->
@@ -81,9 +86,6 @@
 import { useAuthStore } from '~/stores/auth'
 import { signupSchema } from '~/schemas/signup'
 import { useZodFieldPicker } from '~/composables/useZodFieldPicker'
-import BaseForm from '~/components/forms/BaseForm.vue'
-import NordFormInput from '~/components/forms/NordFormInput.vue'
-import NordFormCheckbox from '~/components/forms/NordFormCheckbox.vue'
 import type { SignupFormData } from '~/schemas/signup'
 
 const { t } = useI18n()

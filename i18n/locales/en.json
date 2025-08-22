@@ -11,26 +11,11 @@
             "hide": "Hide password"
         }
     },
-    "form": {
-        "general": {
-            "save": "Sign Up",
-            "cancel": "Cancel"
-        },
-        "validation": {
-            "required": "This field is required",
-            "email": "Please enter a valid email address",
-            "password": {
-                "minLength": "Password must be at least 8 characters",
-                "required": "Password is required"
-            }
-        }
-    },
     "signup": {
         "title": "Create Your Account",
         "subtitle": "Sign up to get started",
         "email": "Email Address",
         "password": "Password",
-        "showHidePassword": "Show / hide password",
         "productUpdates": "I would like to receive occasional product updates and announcements",
         "productUpdatesHint": "You can unsubscribe at any time",
         "submit": "Create Account",
@@ -49,7 +34,6 @@
     "success": {
         "title": "Welcome to provet!",
         "message": "Your account has been successfully created,",
-        "description": "You can now start using our services.",
         "updatesEnabled": "You'll receive product updates and announcements",
         "updatesDisabled": "You can always opt-in to updates later in your account settings",
         "nextSteps": {
